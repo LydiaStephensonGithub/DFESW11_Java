@@ -14,12 +14,39 @@ public class Results {
 	}
 	
 	public int total() {
-		this.total = this.physics + this.chemistry + this.biology;
+		total = physics + chemistry + biology;
 		return this.total;
 	}
 	
-	public String percentage() {
-		this.percentage = (this.total * 100) / 450;
-		return this.percentage + "%";
+	public int percentage() {
+		percentage = (this.total() * 100) / 450;
+		return percentage;
 	}
+	
+	public int classPercentage(int exam) {
+		return (exam * 100) / 150;
+	}
+
+	public String reportCard() {
+		if (this.percentage() > 60) {
+			if (this.classPercentage(physics) < 60 && this.classPercentage(biology) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass physics and biology.";
+			} else if (this.classPercentage(physics) < 60 && this.classPercentage(chemistry) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass physics and chemistry.";
+			} else if (this.classPercentage(biology) < 60 && this.classPercentage(chemistry) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass biology and chemistry.";
+			} else if (this.classPercentage(physics) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass physics.";
+			} else if (this.classPercentage(chemistry) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass chemistry.";
+			} else if (this.classPercentage(biology) < 60) {
+				return "Your grade is " + percentage + "%. You did not pass biology.";
+			} else {
+				return "Your grade is " + percentage + "%. You have passed!";
+			}
+		} else {
+			return "Your grade is " + percentage + "%. You have not passed.";
+		}
+	}
+	
 }

@@ -41,9 +41,29 @@ public class Flowcharts {
 			}
 		}
 	}
+	
+	public static void flowchart2() {
+		int A = 100;
+		while (A < 200) {
+			System.out.println("A");
+			A++;
+		}
+	}
+	
+	public static void flowchart3() {
+		for (int i = 0; i <= 200; i++) {
+			if (i % 2 == 0) {
+				System.out.print("-");
+			} else {
+				System.out.print("*");
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		sumMultiply(7, 2, false);
 		flowchart1(2906);
+		flowchart2();
+		flowchart3();
 	}
 }
